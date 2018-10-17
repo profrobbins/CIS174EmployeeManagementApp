@@ -108,6 +108,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DMACC\employee.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -164,6 +165,7 @@
     </Compile>
     <Compile Include="Models\CreateEmployeeModel.cs" />
     <Compile Include="Models\EmployeeDisplayModel.cs" />
+    <Compile Include="Models\UpdateEmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +174,7 @@
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Views\Employee\Update.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -189,6 +192,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\employeeManagementApp.Domain\employeeManagementApp.Domain.csproj">
+      <Project>{629D9FFD-F65E-4814-A913-ECE86EFAB892}</Project>
+      <Name>employeeManagementApp.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\employeeManagementApp.Shared\employeeManagementApp.Shared.csproj">
       <Project>{d7e078af-4728-4b91-bc27-052ca8d9fc01}</Project>
       <Name>employeeManagementApp.Shared</Name>

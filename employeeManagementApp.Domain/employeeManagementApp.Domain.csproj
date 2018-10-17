@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="employeeManagementApp.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\employeeManagementApp.web\Bin\employeeManagementApp.Domain.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -54,6 +58,10 @@
     <Compile Include="Migrations\201810091453066_InitialDatabaseCreationWithEmployees.Designer.cs">
       <DependentUpon>201810091453066_InitialDatabaseCreationWithEmployees.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810152002490_EmployeeIdGuid.cs" />
+    <Compile Include="Migrations\201810152002490_EmployeeIdGuid.Designer.cs">
+      <DependentUpon>201810152002490_EmployeeIdGuid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,6 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810091453066_InitialDatabaseCreationWithEmployees.resx">
       <DependentUpon>201810091453066_InitialDatabaseCreationWithEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810152002490_EmployeeIdGuid.resx">
+      <DependentUpon>201810152002490_EmployeeIdGuid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

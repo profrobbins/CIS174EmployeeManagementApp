@@ -14,28 +14,28 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>employee ID</th>
-                        <th>first name</th>
-                        <th>middle name</th>
-                        <th>last name</th>
-                        <th>hire date</th>
-                        <th>salary</th>
-                        <th>jobtitle</th>
-                        <th>department</th>
+                        <th>Employee ID</th>
+                        <th>First name</th>
+                        <th>Middle name</th>
+                        <th>Last name</th>
+                        <th>hHire date</th>
+                        <th>Salary</th>
+                        <th>JobTitle</th>
+                        <th>Department</th>
                     </tr>
                 </thead>
                 <tbody>
                    @foreach (var employee in Model.Employees)
                         {
                     <tr>
-                        <td>@employee.employeeId</td>
-                        <td>@employee.firstName</td>
-                        <td>@employee.middleName</td>
-                        <td>@employee.lastName</td>
-                        <td>@employee.hireDate</td>
-                        <td>@employee.salary</td>
-                        <td>@employee.jobTitle</td>
-                        <td>@employee.department</td>   
+                        <td>@employee.EmployeeId</td>
+                        <td>@employee.FirstName</td>
+                        <td>@employee.MiddleName</td>
+                        <td>@employee.LastName</td>
+                        <td>@employee.HireDate</td>
+                        <td>@employee.Salary</td>
+                        <td>@employee.JobTitle</td>
+                        <td>@employee.Department</td>   
                     </tr>
                         }
                 </tbody>

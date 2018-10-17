@@ -1,9 +1,10 @@
 ﻿using System;
 using employeeManagementApp.Shared.Enums;
+using static employeeManagementApp.Domain.Entities.Employee;
 
-namespace employeeManagementApp.Shared.ViewModels
+namespace employeeManagementApp.web.Models
 {
-    public  class EmployeeViewModel
+    public class UpdateEmployeeModel
     {
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
@@ -16,6 +17,6 @@ namespace employeeManagementApp.Shared.ViewModels
         public int? EmployeeId { get; set; }
         public string AvailableHours { get; set; }
        // public SalaryTypeEnum SalaryType { get; set; }
-       // public string SalaryTypeName => SalaryType.ToString();
+       // public string salaryTypeName => SalaryType.ToString();
     }
 }

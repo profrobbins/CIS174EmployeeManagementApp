@@ -3,24 +3,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace employeeManagementApp.Domain.Entities
 {
-  public  class Employee
+    public  class Employee
     {
-        public string firstName { get; set; }
-        public string middleName { get; set; }
-        public string lastName { get; set; }
-        public DateTime birthDate { get; set; }
-        public DateTime hireDate { get; set; }
-        public string department { get; set; }
-        public string jobTitle { get; set; }
-        public int salary { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
+        public DateTime HireDate { get; set; }
+        public string Department { get; set; }
+        public string JobTitle { get; set; }
+        public int Salary { get; set; }
         [Key]
         [Required]
-        public int employeeId { get; set; }
-        public string availableHours { get; set; }
-        public enum SalaryType
-        {
-            hourly,
-            salary
-        }
+        public int? EmployeeId { get; set; }
+        public string AvailableHours { get; set; }
+       // public int salaryType { get; set; }
     }
 }

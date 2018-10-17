@@ -22,16 +22,16 @@ namespace employeeManagementApp.Shared.Orchestrators
             {
                 _employeeContext.Employees.Add(new Domain.Entities.Employee
                 {
-                    firstName = employee.firstName,
-                    middleName = employee.middleName,
-                    lastName = employee.lastName,
-                    birthDate = employee.birthDate,
-                    hireDate = employee.hireDate,
-                    department = employee.department,
-                    jobTitle = employee.jobTitle,
-                    salary = employee.salary,
-                    employeeId = employee.employeeId,
-                    availableHours = employee.availableHours
+                    FirstName = employee.FirstName,
+                    MiddleName = employee.MiddleName,
+                    LastName = employee.LastName,
+                    BirthDate = employee.BirthDate,
+                    HireDate = employee.HireDate,
+                    Department = employee.Department,
+                    JobTitle = employee.JobTitle,
+                    Salary = employee.Salary,
+                    EmployeeId = employee.EmployeeId,
+                    AvailableHours = employee.AvailableHours
                 });
                 return await _employeeContext.SaveChangesAsync();
             }
@@ -42,18 +42,74 @@ namespace employeeManagementApp.Shared.Orchestrators
         {
             var employees = await _employeeContext.Employees.Select(x => new EmployeeViewModel
             {
-                firstName = x.firstName,
-                middleName = x.middleName,
-                lastName = x.lastName,
-                birthDate = x.birthDate,
-                hireDate = x.hireDate,
-                department = x.department,
-                jobTitle = x.jobTitle,
-                salary = x.salary,
-                employeeId = x.employeeId,
-                availableHours = x.availableHours,
+                FirstName = x.FirstName,
+                MiddleName = x.MiddleName,
+                LastName = x.LastName,
+                BirthDate = x.BirthDate,
+                HireDate = x.HireDate,
+                Department = x.Department,
+                JobTitle = x.JobTitle,
+                Salary = x.Salary,
+                EmployeeId = x.EmployeeId,
+                AvailableHours = x.AvailableHours,
             }).ToListAsync();
             return employees; 
+        }
+
+        public async Task<EmployeeViewModel> SearchEmployee(string searchString)
+        {
+            var employee = await _employeeContext.Employees
+                .Where(x => x.FirstName.StartsWith(searchString))
+                .FirstOrDefaultAsync();
+
+            if (employee == null)
+            {
+                return  new EmployeeViewModel();
+            }
+
+            var viewModel = new EmployeeViewModel
+            {
+                FirstName = employee.FirstName,
+                MiddleName = employee.MiddleName,
+                LastName =  employee.LastName,
+                BirthDate = employee.BirthDate,
+                HireDate = employee.HireDate,
+                Department = employee.Department,
+                JobTitle = employee.JobTitle,
+                Salary = employee.Salary,
+                EmployeeId = employee.EmployeeId,
+                AvailableHours = employee.AvailableHours
+            };
+            return viewModel;
+        }
+
+        public async Task<bool> UpdateEmployee(EmployeeViewModel employee)
+        {
+            var updateEntity = await _employeeContext.Employees.FindAsync(employee.EmployeeId);
+            if (updateEntity == null)
+            {
+                return false;
+            }
+
+            updateEntity.FirstName = employee.FirstName;
+            updateEntity.MiddleName = employee.MiddleName;
+            updateEntity.LastName = employee.LastName;
+            updateEntity.BirthDate = employee.BirthDate;
+            updateEntity.HireDate = employee.HireDate;
+            updateEntity.Department = employee.Department;
+            updateEntity.JobTitle = employee.JobTitle;
+            updateEntity.Salary = employee.Salary;
+            updateEntity.AvailableHours = employee.AvailableHours;
+            try
+            {
+            await _employeeContext.SaveChangesAsync();
+            }
+            catch(Exception ex)
+            {
+                var x = ex.ToString();
+                return false;
+            }
+            return true;
         }
     }
 }
