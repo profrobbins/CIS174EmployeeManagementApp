@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace employeeManagementApp.Shared.Orchestrators.Interfaces
 {
-    interface IEmployeeOrchestrator
+    public interface IEmployeeOrchestrator
     {
         Task<List<EmployeeViewModel>> GetAllEmployees();
         Task<int> CreateEmployee(EmployeeViewModel employee);
