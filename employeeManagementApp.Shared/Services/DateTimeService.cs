@@ -8,7 +8,7 @@ using employeeManagementApp.Shared.ViewModels;
 
 namespace employeeManagementApp.Shared.Services
 {
-    class DateTimeService : IDateTimeService
+    public class DateTimeService : IDateTimeService
     {
         private readonly IDateTimeService _dateTimeService;
 

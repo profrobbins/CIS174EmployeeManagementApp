@@ -28,7 +28,7 @@ namespace employeeManagementApp.web.Tests
                 BirthDate = new DateTime(2018,10,31)
             };
             var dateOfBirthService = _mocker.Create<DateOfBirthService>();
-            var  isBirthday = DateOfBirthService
+            //var isBirthday = DateOfBirthService;
 
         }
         

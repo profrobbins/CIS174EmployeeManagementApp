@@ -8,12 +8,18 @@ using employeeManagementApp.Shared.ViewModels;
 
 namespace employeeManagementApp.Shared.Services
 {
-    class DateOfBirthService : IDateOfBirthService
+    public class DateOfBirthService : IDateOfBirthService
     {
+        private readonly IDateTimeService _dateTimeService;
+
+        public DateOfBirthService(IDateTimeService dateTimeService)
+        {
+            _dateTimeService = dateTimeService;
+        }
 
         public bool IsTodayYourBirthday(EmployeeViewModel employee)
         {
-            return employee.BirthDate.DayOfYear == _dateTimeService.Now().DayOfYear;
+                return employee.BirthDate.DayOfYear == _dateTimeService.Now().DayOfYear;
         }
     }
 }
