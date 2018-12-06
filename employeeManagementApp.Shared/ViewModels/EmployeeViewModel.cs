@@ -15,6 +15,7 @@ namespace employeeManagementApp.Shared.ViewModels
         public int Salary { get; set; }
         public int? EmployeeId { get; set; }
         public string AvailableHours { get; set; }
+        public string FullName { get; set; }
        // public SalaryTypeEnum SalaryType { get; set; }
        // public string SalaryTypeName => SalaryType.ToString();
     }

@@ -2,6 +2,7 @@
 using employeeManagementApp.Shared.Orchestrators.Interfaces;
 using employeeManagementApp.Shared.ViewModels;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 namespace employeeManagementApp.Api.Controllers
@@ -27,6 +28,21 @@ namespace employeeManagementApp.Api.Controllers
         {
             var employees = await _employeeOrchestrator.GetAllEmployees();
             return employees;
+        }
+
+        public List<EmployeeViewModel>  GetAllEmployeeList()
+        {
+            var employees =  _employeeOrchestrator.GetAllEmployeeList();
+            return employees;
+        }
+        public EmployeeViewModel GetEmployee(int employeeId)
+        {
+            var employee = _employeeOrchestrator.GetEmployee(employeeId);
+            if(employee == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            };
+            return employee;
         }
     }
 }

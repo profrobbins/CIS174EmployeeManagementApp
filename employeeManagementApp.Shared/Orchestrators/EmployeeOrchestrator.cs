@@ -55,6 +55,27 @@ namespace employeeManagementApp.Shared.Orchestrators
             }).ToListAsync();
             return employees; 
         }
+        public List<EmployeeViewModel> GetAllEmployeeList()
+        {
+            var employees = _employeeContext.Employees.Select(x => new EmployeeViewModel
+            {
+                EmployeeId = x.EmployeeId,
+                 FullName = x.FirstName + " " + x.MiddleName + " " + x.LastName 
+            }).ToList();
+            return employees;
+        }
+        public EmployeeViewModel GetEmployee(int employeeId)
+        {
+            var employee = _employeeContext.Employees.FirstOrDefault(x => x.EmployeeId == employeeId);
+
+            return new EmployeeViewModel
+            {
+                EmployeeId = employee.EmployeeId,
+                FullName = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName,
+                BirthDate = employee.BirthDate,
+                Department = employee.Department
+            };
+        }
 
         public async Task<EmployeeViewModel> SearchEmployee(string searchString)
         {
